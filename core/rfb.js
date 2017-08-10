@@ -330,6 +330,7 @@ RFB.prototype = {
         if (this._rfb_connection_state !== 'connected' || this._view_only) { return false; }
 
         if (down === undefined) {
+            console.log("down undefined");
             this.sendKey(keysym, code, true);
             this.sendKey(keysym, code, false);
             return true;

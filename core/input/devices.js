@@ -61,9 +61,9 @@ Keyboard.prototype = {
     // private methods
 
     _sendKeyEvent: function (keysym, code, down) {
-        if (!this._onKeyEvent) {
+
+        if (!this._onKeyEvent)
             return;
-        }
 
         Log.Debug("onKeyEvent " + (down ? "down" : "up") +
                   ", keysym: " + keysym, ", code: " + code);
@@ -286,7 +286,6 @@ Keyboard.prototype = {
         if (!this._focused) { return; }
 
         stopEvent(e);
-
         var code = this._getKeyCode(e);
 
         // See comment in _handleKeyDown()
@@ -295,23 +294,31 @@ Keyboard.prototype = {
             this._sendKeyEvent(KeyTable.XK_Caps_Lock, 'CapsLock', false);
             return;
         }
-
         // Do we really think this key is down?
         if (!(code in this._keyDownList)) {
             return;
         }
 
         this._sendKeyEvent(this._keyDownList[code], code, false);
-
         delete this._keyDownList[code];
     },
 
-    _allKeysUp: function () {
+    _allKeysUp: function (event) {
         Log.Debug(">> Keyboard.allKeysUp");
+
+        // Ignore AltRight blur event if client is FR(keyboard)-EN
+        var altRightBlur = (event && event.type === "blur" && this._keyDownList["AltRight"]);
+        delete this._keyDownList["AltRight"];
+
         for (var code in this._keyDownList) {
             this._sendKeyEvent(this._keyDownList[code], code, false);
         };
         this._keyDownList = {};
+
+        // Ignore AltRight blur event if client is FR(keyboard)-EN
+        if(altRightBlur)
+            this._keyDownList["AltRight"] = 65514;
+
         Log.Debug("<< Keyboard.allKeysUp");
     },
 
