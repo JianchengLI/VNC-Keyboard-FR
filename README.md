@@ -3,10 +3,16 @@
 [![Build Status](https://travis-ci.org/novnc/noVNC.svg?branch=master)](https://travis-ci.org/novnc/noVNC)
 
 ### Description
-Fork noVNC (https://github.com/novnc/noVNC),
- * Add Enforce US Keyboard for FR Keyboard -> FR Inputs ( Client ) ==> FR (VM) 
- * Add Enforce FR Keyboard for EN Keyboard -> EN Inputs ( Client ) ==> FR (VM)
- 
+Fork noVNC (https://github.com/novnc/noVNC)
+ * Action 1: Add Enforce US Keyboard for FR Keyboard  
+ * Action 2: Add Enforce FR Keyboard for EN Keyboard
+
+Conditions ( {Keyboard Client} - {System Language Client} | {Visual Keyboard Server}):
+  * FR - EN (do _noting ) | FR => OK
+  * FR - FR (do action2)  | FR => OK (not finished) 
+  * EN - FR (do _noting)  | FR => OK
+  * EN - EN (do action1)  | FR => OK (not finished)
+  
 noVNC is a HTML5 VNC client that runs well in any modern browser including
 mobile browsers (iOS and Android).
 
