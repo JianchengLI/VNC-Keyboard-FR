@@ -13,6 +13,11 @@ Conditions ( {Keyboard Client} - {System Language Client} | {Visual Keyboard Ser
   * EN - FR (do _noting)  | FR => OK
   * EN - EN (do action1)  | FR => OK (not finished)
   
+  * FR - FR (do _noting ) | EN => OK
+  * FR - EN (do action1)  | EN => OK (not finished) 
+  * EN - EN (do _noting)  | EN => OK
+  * EN - FR (do action2)  | EN => OK (not finished)
+  
 noVNC is a HTML5 VNC client that runs well in any modern browser including
 mobile browsers (iOS and Android).
 
