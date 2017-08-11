@@ -8,16 +8,18 @@ Fork noVNC (https://github.com/novnc/noVNC)
  * Action 2: Add Enforce FR Keyboard for EN Keyboard
 
 Conditions ( {Keyboard Client} - {System Language Client} | {Visual Keyboard Server}):
-  * FR - EN (do _noting ) | FR => OK
+  * FR - EN (do noting ) | FR => OK
   * FR - FR (do action2)  | FR => OK (not finished) 
-  * EN - FR (do _noting)  | FR => OK
+  * EN - FR (do noting)  | FR => OK
   * EN - EN (do action1)  | FR => OK (not finished)
   
-  * FR - FR (do _noting ) | EN => OK
+  * FR - FR (do noting ) | EN => OK
   * FR - EN (do action1)  | EN => OK (not finished) 
-  * EN - EN (do _noting)  | EN => OK
+  * EN - EN (do noting)  | EN => OK
   * EN - FR (do action2)  | EN => OK (not finished)
   
+
+### Description
 noVNC is a HTML5 VNC client that runs well in any modern browser including
 mobile browsers (iOS and Android).
 
