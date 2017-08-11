@@ -8,6 +8,7 @@ Fork noVNC (https://github.com/novnc/noVNC)
  * Action 2: Add Enforce FR Keyboard for EN Keyboard
 
 Conditions ( {Keyboard Client} - {System Language Client} | {Visual Keyboard Server}):
+
   * FR - EN (do noting ) | FR => OK
   * FR - FR (do action2)  | FR => OK (not finished) 
   * EN - FR (do noting)  | FR => OK
