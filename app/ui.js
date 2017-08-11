@@ -91,6 +91,7 @@ var UI = {
         UI.addControlbarHandlers();
         UI.addTouchSpecificHandlers();
         UI.addExtraKeysHandlers();
+        UI.addEnforceKeys();
         UI.addXvpHandlers();
         UI.addConnectionControlHandlers();
         UI.addClipboardHandlers();
@@ -319,6 +320,8 @@ var UI = {
     addExtraKeysHandlers: function() {
         document.getElementById("noVNC_toggle_extra_keys_button")
             .addEventListener('click', UI.toggleExtraKeys);
+        document.getElementById("noVNC_toggle_enforce_keys_button")
+            .addEventListener('click', UI.toggleEnforceKeys);
         document.getElementById("noVNC_toggle_ctrl_button")
             .addEventListener('click', UI.toggleCtrl);
         document.getElementById("noVNC_toggle_alt_button")
@@ -331,6 +334,12 @@ var UI = {
             .addEventListener('click', UI.sendCtrlAltDel);
     },
 
+    addEnforceKeys: function(){
+        document.getElementById("noVNC_toggle_enforce_en_button")
+            .addEventListener('click', UI.toggleEnforceEn);
+        document.getElementById("noVNC_toggle_enforce_fr_button")
+            .addEventListener('click', UI.toggleEnforceFr);
+    },
     addXvpHandlers: function() {
         document.getElementById("noVNC_xvp_shutdown_button")
             .addEventListener('click', function() { UI.rfb.xvpShutdown(); });
@@ -1586,6 +1595,32 @@ var UI = {
         }
     },
 
+    openEnforceKeys: function() {
+        UI.closeAllPanels();
+        UI.openControlbar();
+
+        document.getElementById('noVNC_enforce_modifiers')
+            .classList.add("noVNC_open");
+        document.getElementById('noVNC_toggle_enforce_keys_button')
+            .classList.add("noVNC_selected");
+    },
+
+    closeEnforceKeys: function() {
+        document.getElementById('noVNC_enforce_modifiers')
+            .classList.remove("noVNC_open");
+        document.getElementById('noVNC_toggle_enforce_keys_button')
+            .classList.remove("noVNC_selected");
+    },
+
+    toggleEnforceKeys: function() {
+        if(document.getElementById('noVNC_enforce_modifiers')
+                .classList.contains("noVNC_open")) {
+            UI.closeEnforceKeys();
+        } else  {
+            UI.openEnforceKeys();
+        }
+    },
+
     sendEsc: function() {
         UI.rfb.sendKey(KeyTable.XK_Escape, "Escape");
     },
@@ -1612,6 +1647,28 @@ var UI = {
             btn.classList.remove("noVNC_selected");
         } else {
             UI.rfb.sendKey(KeyTable.XK_Alt_L, "AltLeft", true);
+            btn.classList.add("noVNC_selected");
+        }
+    },
+
+    toggleEnforceEn:function(){
+        var btn = document.getElementById('noVNC_toggle_enforce_en_button');
+        if (btn.classList.contains("noVNC_selected")) {
+            // TODO: Here
+            btn.classList.remove("noVNC_selected");
+        } else {
+            // TODO: Here
+            btn.classList.add("noVNC_selected");
+        }
+    },
+
+    toggleEnforceFr:function(){
+        var btn = document.getElementById('noVNC_toggle_enforce_fr_button');
+        if (btn.classList.contains("noVNC_selected")) {
+            // TODO: Here
+            btn.classList.remove("noVNC_selected");
+        } else {
+            // TODO: Here
             btn.classList.add("noVNC_selected");
         }
     },

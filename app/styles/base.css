@@ -37,6 +37,17 @@ html {
   height:100%;
 }
 
+/*
+ *
+ */
+div.noVNC_button{
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
+  width: 100px;
+  text-align: center;
+}
+
 .noVNC_only_touch.noVNC_hidden {
   display: none;
 }
@@ -53,6 +64,7 @@ html {
 .noVNC_spinner {
   position: relative;
 }
+
 .noVNC_spinner, .noVNC_spinner::before, .noVNC_spinner::after {
   width: 10px;
   height: 10px;
@@ -581,7 +593,7 @@ select:active {
   display: none;
 }
 
-#noVNC_modifiers {
+#noVNC_modifiers, #noVNC_enforce_modifiers {
   background-color: rgb(92, 92, 92);
   border: none;
   padding: 0 10px;

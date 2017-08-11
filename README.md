@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/novnc/noVNC.svg?branch=master)](https://travis-ci.org/novnc/noVNC)
 
 ### Description
-Fork noVNC (https://github.com/novnc/noVNC)
+Fork noVNC (https://github.com/novnc/noVNC) for FR <=> EN Using
  * Action 1: Add Enforce US Keyboard for FR Keyboard  
  * Action 2: Add Enforce FR Keyboard for EN Keyboard
 
