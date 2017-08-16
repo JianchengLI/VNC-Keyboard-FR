@@ -21,6 +21,12 @@ import RFB from "../core/rfb.js";
 import Display from "../core/display.js";
 import * as WebUtil from "./webutil.js";
 
+var KeyboardLayouts = {
+    FR:'fr',
+    EN:'en',
+    Empty: ''
+}
+
 var UI = {
 
     connected: false,
@@ -45,6 +51,8 @@ var UI = {
     inhibit_reconnect: true,
     reconnect_callback: null,
     reconnect_password: null,
+
+    enforce_keyboard_layout:KeyboardLayouts.Empty,
 
     prime: function(callback) {
         if (document.readyState === "interactive" || document.readyState === "complete") {
@@ -320,8 +328,6 @@ var UI = {
     addExtraKeysHandlers: function() {
         document.getElementById("noVNC_toggle_extra_keys_button")
             .addEventListener('click', UI.toggleExtraKeys);
-        document.getElementById("noVNC_toggle_enforce_keys_button")
-            .addEventListener('click', UI.toggleEnforceKeys);
         document.getElementById("noVNC_toggle_ctrl_button")
             .addEventListener('click', UI.toggleCtrl);
         document.getElementById("noVNC_toggle_alt_button")
@@ -335,11 +341,12 @@ var UI = {
     },
 
     addEnforceKeys: function(){
-        document.getElementById("noVNC_toggle_enforce_en_button")
-            .addEventListener('click', UI.toggleEnforceEn);
-        document.getElementById("noVNC_toggle_enforce_fr_button")
-            .addEventListener('click', UI.toggleEnforceFr);
+        document.getElementById("noVNC_toggle_enforce_keys_button")
+            .addEventListener('click', UI.toggleEnforceKeys);
+        document.getElementById("noVNC_toggle_enforce_fr2en_button")
+            .addEventListener('click', UI.toggleEnforceFR2EN);
     },
+
     addXvpHandlers: function() {
         document.getElementById("noVNC_xvp_shutdown_button")
             .addEventListener('click', function() { UI.rfb.xvpShutdown(); });
@@ -692,7 +699,7 @@ var UI = {
 
         // These heights need to be non-zero for the below logic to work
         if (handleHeight === 0 || controlbarBounds.height === 0) {
-            return;
+            return;null
         }
 
         var newY = viewportRelativeY;
@@ -1651,24 +1658,11 @@ var UI = {
         }
     },
 
-    toggleEnforceEn:function(){
-        var btn = document.getElementById('noVNC_toggle_enforce_en_button');
+    toggleEnforceFR2EN:function(){
+        let btn = document.getElementById('noVNC_toggle_enforce_fr2en_button');
         if (btn.classList.contains("noVNC_selected")) {
-            // TODO: Here
             btn.classList.remove("noVNC_selected");
         } else {
-            // TODO: Here
-            btn.classList.add("noVNC_selected");
-        }
-    },
-
-    toggleEnforceFr:function(){
-        var btn = document.getElementById('noVNC_toggle_enforce_fr_button');
-        if (btn.classList.contains("noVNC_selected")) {
-            // TODO: Here
-            btn.classList.remove("noVNC_selected");
-        } else {
-            // TODO: Here
             btn.classList.add("noVNC_selected");
         }
     },

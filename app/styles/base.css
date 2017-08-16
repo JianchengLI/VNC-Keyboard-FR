@@ -37,14 +37,14 @@ html {
   height:100%;
 }
 
-/*
- *
+/**
+ * Enforce FR to EN button
  */
 div.noVNC_button{
   font-size: 13px;
   font-weight: bold;
   color: white;
-  width: 100px;
+  width: 130px;
   text-align: center;
 }
 
