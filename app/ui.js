@@ -21,13 +21,13 @@ import RFB from "../core/rfb.js";
 import Display from "../core/display.js";
 import * as WebUtil from "./webutil.js";
 
-var KeyboardLayouts = {
-    FR:'fr',
-    EN:'en',
-    Empty: ''
-}
 
 var UI = {
+    KeyboardLayouts:{
+        FR:'fr',
+        EN:'en'
+        // other keybaords layouts here
+    },
 
     connected: false,
     desktopName: "",
@@ -52,7 +52,8 @@ var UI = {
     reconnect_callback: null,
     reconnect_password: null,
 
-    enforce_keyboard_layout:KeyboardLayouts.Empty,
+    // Enforce which keyboard layout to en-US, if en do noting
+    enforce_keyboard_layout: 'en',
 
     prime: function(callback) {
         if (document.readyState === "interactive" || document.readyState === "complete") {
@@ -1662,8 +1663,10 @@ var UI = {
         let btn = document.getElementById('noVNC_toggle_enforce_fr2en_button');
         if (btn.classList.contains("noVNC_selected")) {
             btn.classList.remove("noVNC_selected");
+            UI.enforce_keyboard_layout = UI.KeyboardLayouts.EN;
         } else {
             btn.classList.add("noVNC_selected");
+            UI.enforce_keyboard_layout = UI.KeyboardLayouts.FR;
         }
     },
 

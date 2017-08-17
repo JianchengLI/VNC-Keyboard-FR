@@ -154,12 +154,10 @@ export function getKeysym(evt){
         if ((location === undefined) || (location > 3)) {
             location = 0;
         }
-
         return DOMKeyTable[key][location];
     }
 
     // Now we need to look at the Unicode symbol instead
-
     var codepoint;
 
     // Special key? (FIXME: Should have been caught earlier)

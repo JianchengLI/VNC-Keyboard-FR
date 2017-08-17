@@ -14,11 +14,13 @@ import { setCapture, stopEvent, getPointerEvent } from '../util/events.js';
 import { set_defaults, make_properties } from '../util/properties.js';
 import * as KeyboardUtil from "./util.js";
 import KeyTable from "./keysym.js";
+import UI from "../../app/ui.js"
+import KeysMap from "./keymap.js";
+
 
 //
 // Keyboard event handler
 //
-
 function Keyboard(defaults) {
     this._keyDownList = {};         // List of depressed keys
                                     // (even if they are happy)
@@ -136,6 +138,12 @@ Keyboard.prototype = {
 
         var code = this._getKeyCode(e);
         var keysym = KeyboardUtil.getKeysym(e);
+
+        if(UI.enforce_keyboard_layout !== UI.KeyboardLayouts.EN)
+            keysym = KeysMap[code] || keysym; // if not find using default value
+
+        console.log("_handleKeyDown code:" + code);
+        console.log("_handleKeyDown keysym:" + keysym);
 
         // We cannot handle keys we cannot track, but we also need
         // to deal with virtual keyboards which omit key info
