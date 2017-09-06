@@ -49,5 +49,6 @@ export default {
     'Period': '46',
     'Slash': '47',
     'Backquote':'96',
-    'AltRight':'65514'
+    'AltRight':'65514',
+    'IntlBackslash':'126'
 };

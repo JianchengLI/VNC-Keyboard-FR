@@ -890,6 +890,7 @@ var UI = {
         UI.closeXvpPanel();
         UI.closeClipboardPanel();
         UI.closeExtraKeys();
+        UI.closeEnforceKeys();
     },
 
 /* ------^-------
@@ -1592,6 +1593,7 @@ var UI = {
             .classList.remove("noVNC_open");
         document.getElementById('noVNC_toggle_extra_keys_button')
             .classList.remove("noVNC_selected");
+
     },
 
     toggleExtraKeys: function() {
@@ -1649,7 +1651,7 @@ var UI = {
     },
 
     toggleAlt: function() {
-        var btn = document.getElementById('noVNC_toggle_alt_button');
+        let btn = document.getElementById('noVNC_toggle_alt_button');
         if (btn.classList.contains("noVNC_selected")) {
             UI.rfb.sendKey(KeyTable.XK_Alt_L, "AltLeft", false);
             btn.classList.remove("noVNC_selected");

@@ -134,13 +134,20 @@ Keyboard.prototype = {
     },
 
     _handleKeyDown: function (e) {
-        if (!this._focused) { return; }
+        if (!this._focused) {
+            return;
+        }
 
         var code = this._getKeyCode(e);
         var keysym = KeyboardUtil.getKeysym(e);
 
-        if(UI.enforce_keyboard_layout !== UI.KeyboardLayouts.EN)
+
+        if (UI.enforce_keyboard_layout !== UI.KeyboardLayouts.EN)
             keysym = KeysMap[code] || keysym; // if not find using default value
+
+        // if(keysym === 60 || keysym === 62)
+        //      keysym = 38;
+
 
         console.log("_handleKeyDown code:" + code);
         console.log("_handleKeyDown keysym:" + keysym);
@@ -316,7 +323,10 @@ Keyboard.prototype = {
 
         // Ignore AltRight blur event if client is FR(keyboard)-EN
         var altRightBlur = (event && event.type === "blur" && this._keyDownList["AltRight"]);
+        var altLeftBlur = (event && event.type === "blur" && this._keyDownList["AltLeft"]);
+
         delete this._keyDownList["AltRight"];
+        delete this._keyDownList["AltLeft"];
 
         for (var code in this._keyDownList) {
             this._sendKeyEvent(this._keyDownList[code], code, false);
@@ -326,6 +336,9 @@ Keyboard.prototype = {
         // Ignore AltRight blur event if client is FR(keyboard)-EN
         if(altRightBlur)
             this._keyDownList["AltRight"] = 65514;
+
+        if(altLeftBlur)
+            this._keyDownList["AltLeft"] = 65288;
 
         Log.Debug("<< Keyboard.allKeysUp");
     },

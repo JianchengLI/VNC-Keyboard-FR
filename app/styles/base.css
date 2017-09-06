@@ -26,7 +26,7 @@ body {
   padding:0;
   font-family: Helvetica;
   /*Background image with light grey curve.*/
-  background-color:#494949;
+  background-color:#3A424E;
   background-repeat:no-repeat;
   background-position:right bottom;
   height:100%;
@@ -144,7 +144,7 @@ input[type=input]:focus, input[type=password]:focus,
 input:not([type]):focus, input[type=button]:focus,
 input[type=submit]:focus,
 textarea:focus, select:focus {
-  box-shadow: 0px 0px 3px rgba(74, 144, 217, 0.5);
+  box-shadow: 0px 0px 3px rgba(74, 144, 217, 0.2);
   border-color: rgb(74, 144, 217);
   outline: none;
 }
@@ -249,7 +249,7 @@ select:active {
   color: #fff;
 
   border-radius: 10px;
-  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
   background: rgba(200,55,55,0.8);
 }
 #noVNC_fallback_error.noVNC_open > div {
@@ -313,15 +313,15 @@ select:active {
 #noVNC_control_bar {
   position: relative;
   left: -100%;
-
+  top: -180px;
   transition: 0.5s ease-in-out;
 
-  background-color: rgb(110, 132, 163);
+  background-color: #3A424E;
   border-radius: 0 10px 10px 0;
 
 }
 #noVNC_control_bar.noVNC_open {
-  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
   left: 0;
 }
 #noVNC_control_bar::before {
@@ -335,7 +335,7 @@ select:active {
   transition: box-shadow 0.5s ease-in-out;
 }
 #noVNC_control_bar.noVNC_open::before {
-  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
 }
 .noVNC_right #noVNC_control_bar {
   left: 100%;
@@ -358,11 +358,11 @@ select:active {
   z-index: -1;
   cursor: pointer;
   border-radius: 5px;
-  background-color: rgb(83, 99, 122);
+  background-color: #3A424E;
   background-image: url("../images/handle_bg.svg");
   background-repeat: no-repeat;
   background-position: right;
-  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
 }
 #noVNC_control_bar_handle:after {
   content: "";
@@ -474,7 +474,7 @@ select:active {
   background: rgba(0, 0, 0, 0.2);
 }
 :root:not(.noVNC_touch) .noVNC_button:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: #94c800;
 }
 .noVNC_button.noVNC_hidden {
   display: none;
@@ -497,9 +497,9 @@ select:active {
 
   background: #fff;
   border-radius: 10px;
-  color: #000;
+  color: #666;
   border: 2px solid #E0E0E0;
-  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
 }
 .noVNC_panel.noVNC_open {
   visibility: visible;
@@ -528,7 +528,7 @@ select:active {
 }
 
 .noVNC_panel .noVNC_heading {
-  background-color: rgb(110, 132, 163);
+  background-color: #3A424E;
   border-radius: 5px;
   padding: 5px;
   /* Compensate for padding in image */
@@ -594,9 +594,11 @@ select:active {
 }
 
 #noVNC_modifiers, #noVNC_enforce_modifiers {
-  background-color: rgb(92, 92, 92);
+  background-color: rgb(58, 66, 78);
   border: none;
   padding: 0 10px;
+  position: relative;
+  top: -200px;
 }
 
 /* XVP Shutdown/Reboot */
@@ -728,6 +730,8 @@ select:active {
   transform: scale(1, 1);
   visibility: visible;
   opacity: 1;
+  position: relative;
+  top:-180px;
 }
 #noVNC_connect_dlg .noVNC_logo {
   transition: 0.5s ease-in-out;
@@ -753,21 +757,21 @@ select:active {
   padding: 10px;
 
   color: white;
-  background-color: rgb(110, 132, 163);
+  background-color: #3A424E;
   border-radius: 12px;
 
   text-align: center;
   font-size: 20px;
 
-  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
 }
 #noVNC_connect_button div {
-  margin: 2px;
-  padding: 5px 30px;
-  border: 1px solid rgb(83, 99, 122);
-  border-bottom-width: 2px;
+  margin: 5px;
+  padding: 8px 30px;
+  border: 1px solid #FFF;
+  border-bottom-width: 1px;
   border-radius: 5px;
-  background: linear-gradient(to top, rgb(110, 132, 163), rgb(99, 119, 147));
+  /*background: linear-gradient(to top, #3A424E, rgb(99, 119, 147));*/
 
   /* This avoids it jumping around when :active */
   vertical-align: middle;
@@ -777,7 +781,7 @@ select:active {
   margin-top: 3px;
 }
 :root:not(.noVNC_touch) #noVNC_connect_button div:hover {
-  background: linear-gradient(to top, rgb(110, 132, 163), rgb(105, 125, 155));
+  background: #94c800;
 }
 
 #noVNC_connect_button img {
@@ -820,7 +824,7 @@ select:active {
   right: 0;
 
   color: white;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(58, 66, 78, 0.1);
   z-index: 50;
 
   /*display: flex;*/
@@ -845,8 +849,8 @@ select:active {
 #noVNC_container {
   width: 100%;
   height: 100%;
-  background-color: #313131;
-  border-bottom-right-radius: 800px 600px;
+  background-color: #FFF;
+  border-bottom-right-radius: 600px 400px;
   /*border-top-left-radius: 800px 600px;*/
 }
 
@@ -868,7 +872,7 @@ select:active {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(40, 40, 40);
+  background-color: rgba(58, 66, 78, 0.05);
 }
 :root:not(.noVNC_connected) #noVNC_screen {
   display: none;
@@ -894,13 +898,13 @@ select:active {
 }
 
 .noVNC_logo {
-  color:yellow;
+  color: #108366;
   font-family: 'Orbitron', 'OrbitronTTF', sans-serif;
   line-height:90%;
-  text-shadow: 0.1em 0.1em 0 black;
+  text-shadow: 0.05em 0.05em 0 #EEE;
 }
 .noVNC_logo span{
-  color:green;
+  color:#94c800;
 }
 
 #noVNC_bell {
