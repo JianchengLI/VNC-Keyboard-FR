@@ -136,6 +136,35 @@ var UI = {
         if (typeof callback === "function") {
             callback(UI.rfb);
         }
+
+        UI.autoConnectByUrl(); //@JC
+    },
+
+    /**
+     * Auto connect by url params
+     * @JC
+     */
+    autoConnectByUrl:function(){
+        let {host, port, ticket} = UI.getUrlVars();
+        if(host && port && ticket){
+            UI.updateSetting("host",host);
+            UI.updateSetting("port",port);
+            UI.updateSetting("path","ticket/"+ticket);
+            UI.connect();
+        }
+    },
+
+    /**
+     * Get url params values
+     * @JC
+     */
+    getUrlVars: function(){
+        let vars = {};
+        window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+            function(m,key,value) {
+                vars[key] = value;
+            });
+        return vars;
     },
 
     initFullscreen: function() {
