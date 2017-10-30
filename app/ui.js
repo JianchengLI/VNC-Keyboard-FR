@@ -145,10 +145,11 @@ var UI = {
      * @JC
      */
     autoConnectByUrl:function(){
-        let {host, port, ticket} = UI.getUrlVars();
-        if(host && port && ticket){
+        let {host, port, ticket, encrypt} = UI.getUrlVars();
+        if(host && port && ticket && encrypt){
             UI.updateSetting("host",host);
             UI.updateSetting("port",port);
+            UI.updateSetting("encrypt",encrypt);
             UI.updateSetting("path","ticket/"+ticket);
             UI.connect();
         }
